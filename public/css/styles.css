@@ -109,7 +109,7 @@ nav ul li a {
 }
 
 .car-info h3 {
-  color: rgb(0, 132, 255);
+  color: rgb(3, 73, 131);
   font-weight: bold;
   font-size: smaller;
   margin-top: 0;
@@ -121,11 +121,11 @@ nav ul li a {
   padding-left: 0;
   margin: 0;
   font-size: smaller;
-  color: rgb(0, 132, 255);
+  color: rgb(3, 73, 131);
 }
 
 button {
-  background-color: rgb(0, 132, 255);
+  background-color: rgb(3, 73, 131);
   color: white;
   padding: 10px 20px;
   border: none;
@@ -177,7 +177,7 @@ button {
 }
 
 .upgrades-grid .image {
-  background-color: rgb(0, 132, 255);
+  background-color: rgb(3, 73, 131);
   margin: 0;
   padding: 0;
   border: 2px solid black;
@@ -228,8 +228,8 @@ footer {
   .hero,
   .content,
   footer {
-    border-left: 5px solid rgb(0, 132, 255);
-    border-right: 5px solid rgb(0, 132, 255);
+    border-left: 5px solid rgb(3, 73, 131);
+    border-right: 5px solid rgb(3, 73, 131);
   }
 
   nav {
@@ -243,7 +243,7 @@ footer {
   }
 
   nav ul li {
-    margin: 0 clamp(5px, 6vw, 250px);
+    margin: 0 clamp(5px, 5vw, 250px);
   }
 
   .hero {
@@ -329,6 +329,6 @@ footer {
   footer {
     max-width: 1300px;
     margin: auto;
-    border-bottom: 5px solid rgb(0, 132, 255);
+    border-bottom: 5px solid rgb(3, 73, 131);
   }
 }
