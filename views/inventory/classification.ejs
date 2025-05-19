@@ -1,0 +1,17 @@
+<%# ---------- The Content Heading ----------%>
+
+
+    <% if (title) { %>
+        <%# uses a EJS code block to contain a JavaScript if structure to determine if a "title" variable exists. %>
+            <h1>
+                <%# if the variable exists, it is displayed within an <h1> element. %>
+                    <%= title %>
+            </h1>
+            <% } else { res.redirect('/') } %>
+                <%# redirects the response object to the default index route, to deliver the home view. %>
+
+                    <%# ---------- A Message Block ----------%>
+                        <%# messages() %>
+
+                            <%# ---------- The Inventory Items Display ----------%>
+                                <%- grid %>
