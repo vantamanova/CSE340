@@ -57,6 +57,32 @@ Util.buildClassificationGrid = async function(data){
   return grid // returns the variable to the calling location.
 }
 
+/* **************************************
+* Build the classification view HTML
+4. specific vehicle's information and wrap it up in HTML to deliver to the view
+* ************************************ */
+Util.buildVehicleGrid = async function(data){
+  let grid
+  if (data.length > 0) {
+    const vehicle = data[0] // Expecting one vehicle object
+    grid = '<div id="vehicle-detail">'
+    grid += `<img src="${vehicle.inv_image}" alt="Image of ${vehicle.inv_make} ${vehicle.inv_model}">`
+    grid += '<div id="vehicle-info">'
+    grid += `<h2>${vehicle.inv_make} ${vehicle.inv_model}</h2>`
+    grid += `<p><strong>Price:</strong> $${new Intl.NumberFormat('en-US').format(vehicle.inv_price)}</p>`
+    grid += `<p><strong>Description:</strong> ${vehicle.inv_description}</p>`
+    grid += `<p><strong>Color:</strong> ${vehicle.inv_color}</p>`
+    grid += `<p><strong>Miles:</strong> ${vehicle.inv_miles.toLocaleString()}</p>`
+    grid += '</div>'
+    grid += '</div>'
+  } else {
+    grid = '<p class="notice">Sorry, vehicle details are not available.</p>'
+  }
+  return grid
+}
+
+
+
 /* ****************************************
  * Middleware For Handling Errors
  * Wrap other function in this for 
