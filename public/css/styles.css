@@ -74,6 +74,12 @@ nav ul li a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #97c7f7;
+  text-shadow: 0 0 5px rgba(3, 73, 131, 0.5);
 }
 
 /***-------------------------Hero Area--------------------------------***/
@@ -198,6 +204,16 @@ footer {
   color: black;
   padding: 10px;
   margin-top: 20px;
+}
+
+footer a {
+  color: rgb(3, 73, 131);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: black;
+  text-decoration: underline;
 }
 
 /***-------------------------ClassificationGrid Area--------------------------------***/

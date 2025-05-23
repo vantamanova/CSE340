@@ -6,4 +6,8 @@ baseController.buildHome = async function(req, res){
   res.render("index", {title: "Home", nav})
 }
 
+baseController.throwError = async function (req, res, next) {
+  throw new Error("Intentional 500 error for testing.")
+}
+
 module.exports = baseController // exports the baseController object for use elsewhere.
