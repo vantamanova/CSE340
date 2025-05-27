@@ -403,6 +403,11 @@ h1 {
   font-size: 0.9rem;
 }
 
+ul.notice {
+  list-style-type: none;
+  padding-left: 0;
+}
+
 
 /*** ------------------------- Large Screen Styles ------------------------- ***/
 @media (min-width: 768px) {
