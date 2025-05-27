@@ -310,6 +310,58 @@ h1 {
   color: rgb(3, 73, 131);
 }
 
+/*** ------------------------- Vehicle Detail Area ------------------------- ***/
+.login-form {
+  background-color: #2b3a4b;
+  padding: 20px;
+  border-radius: 10px;
+  width: 375px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label {
+  color: white;
+  margin-top: 10px;
+}
+
+.login-form input {
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.login-form button {
+  margin-top: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: white;
+  color: #2b3a4b;
+  font-weight: bold;
+  cursor: pointer;
+  width: 50%;
+  align-self: center;
+}
+
+.signup-text {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.signup-text a {
+  color: white;
+  text-decoration: underline;
+}
+
+.signup-text {
+  color: white;
+  padding: .5rem;
+  margin-bottom: 0;
+}
 
 /*** ------------------------- Large Screen Styles ------------------------- ***/
 @media (min-width: 768px) {
