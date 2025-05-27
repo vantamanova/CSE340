@@ -310,58 +310,99 @@ h1 {
   color: rgb(3, 73, 131);
 }
 
-/*** ------------------------- Vehicle Detail Area ------------------------- ***/
-.login-form {
-  background-color: #2b3a4b;
-  padding: 20px;
-  border-radius: 10px;
-  width: 375px;
+/*** ------------------------- Login/Registration Pages ------------------------- ***/
+.login-form,
+.registration-form {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
   margin: auto;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgb(211, 211, 211);
 }
 
-.login-form label {
-  color: white;
-  margin-top: 10px;
+.login-form label,
+.registration-form label {
+  color: #777777;
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
+  margin-top: 1rem;
+  text-align: start;
 }
 
-.login-form input {
-  padding: 8px;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  border: none;
-  border-radius: 5px;
+.login-form input,
+.registration-form input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  background-color: #fafafa;
+  color: #333;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-.login-form button {
-  margin-top: 20px;
-  padding: 10px;
-  border: none;
-  border-radius: 20px;
+.login-form input:focus,
+.registration-form input:focus {
+  border-color: #777777;
   background-color: white;
-  color: #2b3a4b;
-  font-weight: bold;
+  outline: none;
+}
+
+.login-form button,
+.registration-form button {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 30px;
+  background-color: #2b3a4b;
+  color: white;
+  font-weight: 600;
   cursor: pointer;
-  width: 50%;
+  transition: background-color 0.3s ease;
+  margin-top: 1.5rem;
+  width: 60%;
   align-self: center;
+}
+
+.login-form button:hover,
+.registration-form button:hover {
+  background-color: #555555;
 }
 
 .signup-text {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 1rem;
+  color: #555555;
+  font-size: 0.9rem;
 }
 
 .signup-text a {
-  color: white;
+  color: #2b3a4b;
   text-decoration: underline;
+  transition: color 0.3s ease;
 }
 
-.signup-text {
-  color: white;
-  padding: .5rem;
-  margin-bottom: 0;
+#passwordBtn {
+  color: #777777;
+  font-size: 0.75rem;
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  user-select: none;
+  text-align: end;
 }
+
+.registration-form input::placeholder {
+  color: #777777;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
 
 /*** ------------------------- Large Screen Styles ------------------------- ***/
 @media (min-width: 768px) {

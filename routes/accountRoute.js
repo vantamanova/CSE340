@@ -8,4 +8,7 @@ const accountController = require("../controllers/accountController") // Need to
 // Route to display the login view
 router.get("/login", utilities.handleErrors(accountController.buildLogin)); // Attention to the pass
 
+// Route to display the registration view
+router.get("/register", utilities.handleErrors(accountController.buildRegisteration));
+
 module.exports = router; // exports the router object for use elsewhere
