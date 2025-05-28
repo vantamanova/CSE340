@@ -341,8 +341,8 @@ h1 {
   border: 1px solid rgb(211, 211, 211);
   border-radius: 6px;
   margin-bottom: 1rem;
-  background-color: #fafafa;
-  color: #333;
+  background-color: #fcfcfc;
+  color: #333333;
   transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
@@ -406,6 +406,19 @@ h1 {
 ul.notice {
   list-style-type: none;
   padding-left: 0;
+}
+
+#passwordRequirements p {
+  color: #777777;
+}
+
+input:required:invalid,
+input:focus:invalid {
+  border-left: 3px solid rgb(226, 54, 54);
+}
+
+input:required:valid {
+  border-left: 3px solid rgb(24, 146, 89);
 }
 
 
