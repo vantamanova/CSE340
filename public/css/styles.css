@@ -327,7 +327,7 @@ h1 {
 
 .login-form label,
 .registration-form label {
-  color: #777777;
+  color: #5a5a5a;
   font-size: 0.9rem;
   margin-bottom: 0.2rem;
   margin-top: 1rem;
@@ -348,7 +348,7 @@ h1 {
 
 .login-form input:focus,
 .registration-form input:focus {
-  border-color: #777777;
+  border-color: #5a5a5a;
   background-color: white;
   outline: none;
 }
@@ -387,7 +387,7 @@ h1 {
 }
 
 #passwordBtn {
-  color: #777777;
+  color: #5a5a5a;
   font-size: 0.75rem;
   margin-top: -0.5rem;
   margin-bottom: 1rem;
@@ -398,7 +398,7 @@ h1 {
 }
 
 .registration-form input::placeholder {
-  color: #777777;
+  color: #5a5a5a;
   font-style: italic;
   font-size: 0.9rem;
 }
@@ -411,7 +411,7 @@ ul.notice {
 }
 
 #passwordRequirements p {
-  color: #777777;
+  color: #5a5a5a;
 }
 
 input:required:invalid,
