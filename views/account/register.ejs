@@ -6,29 +6,39 @@
 
         <%- messages() %>
 
-            <!-- Login Form -->
-            <form action="/account/register" method="post" class="registration-form">
-                <label for="first_name">First name:</label>
-                <input type="text" id="first_name" name="account_firstname" required>
+            <% if (errors) { %>
+                <ul class="notice">
+                    <% errors.array().forEach(error=> { %>
+                        <li>
+                            <%= error.msg %>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } %>
 
-                <label for="last_name">Last name:</label>
-                <input type="text" id="last_name" name="account_lastname" required>
+                    <!-- Login Form -->
+                    <form action="/account/register" method="post" class="registration-form">
+                        <label for="first_name">First name:</label>
+                        <input type="text" id="first_name" name="account_firstname" required>
 
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="account_email" required>
+                        <label for="last_name">Last name:</label>
+                        <input type="text" id="last_name" name="account_lastname" required>
 
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="account_password" required
-                    placeholder="Min 12 chars, 1 cap, num, symbol"
-                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
-                <div id="passwordRequirements">
-                    <p>*the password is at least 12 characters and has at least 1 uppercase
-                        character, 1 number
-                        and 1 special character.</p>
-                </div>
-                <span id="passwordBtn">Show Password</span>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="account_email" required>
 
-                <button type="submit">REGISTER</button>
-            </form>
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="account_password" required
+                            placeholder="Min 12 chars, 1 cap, num, symbol"
+                            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+                        <div id="passwordRequirements">
+                            <p>*the password is at least 12 characters and has at least 1 uppercase
+                                character, 1 number
+                                and 1 special character.</p>
+                        </div>
+                        <span id="passwordBtn">Show Password</span>
 
-            <script src="/js/script.js"></script>
+                        <button type="submit">REGISTER</button>
+                    </form>
+
+                    <script src="/js/script.js"></script>
