@@ -4,6 +4,7 @@ const router = new express.Router()
 const utilities = require("../utilities/")
 const accountController = require("../controllers/accountController") // Need to build
 const regValidate = require('../utilities/account-validation')
+const loginValidate = require("../utilities/account-validation")
 
 // Route to display the login view
 router.get("/login", utilities.handleErrors(accountController.buildLogin)); // Attention to the pass
@@ -17,4 +18,13 @@ router.post('/register',
     regValidate.checkRegData,
     utilities.handleErrors(accountController.registerAccount)) // need to build
 
+// Process the login attempt
+router.post(
+  "/login",
+  loginValidate.loginRules(),
+  loginValidate.checkLoginData,
+  (req, res) => {
+    res.status(200).send("login process")
+  }
+)
 module.exports = router; // exports the router object for use elsewhere
