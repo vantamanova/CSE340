@@ -45,4 +45,18 @@ async function getDataByInvId(inv_id) {
 
 }
 
-module.exports = {getClassifications, getInventoryByClassificationId, getDataByInvId}; //exports functions for use elsewhere.
+/* ***************************
+ *  Add new Classification
+ *  W04
+ * ************************** */
+async function addClassification(classification_name) {
+  try {
+    const sql = 'INSERT INTO classification (classification_name) VALUES ($1)'
+    const data = await pool.query(sql, [classification_name])
+    return data.rowCount
+  } catch (error) {
+    return null
+  }
+}
+
+module.exports = {getClassifications, getInventoryByClassificationId, getDataByInvId, addClassification}; //exports functions for use elsewhere.
