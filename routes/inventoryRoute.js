@@ -24,4 +24,13 @@ router.post("/add-classification",
     invValidate.checkClassificationData, // server-side validation middleware 
     utilities.handleErrors(invController.addClassification)) // go to controller and go to function
 
-module.exports = router; // exports the router object for use elsewhere
+// Route to show Add New Inventory View
+router.get("/add-inventory", utilities.handleErrors(invController.buildAddInventory))
+
+// Add Inventory Form
+router.post("/add-inventory", 
+    invValidate.inventoryRules(), // server-side validation middleware 
+    invValidate.checkInventoryData, // server-side validation middleware 
+    utilities.handleErrors(invController.addInventory)) // go to controller and go to function
+
+    module.exports = router; // exports the router object for use elsewhere

@@ -65,7 +65,23 @@ invCont.buildAddClassification = async function (req, res,next) {
 }
 
 /* ***************************
- *  Form Submission
+ *  Build Add New Inventory view
+ *  W04
+ * ************************** */
+invCont.buildAddInventory = async function (req, res,next) {
+  let nav = await utilities.getNav()
+  let classificationList = await utilities.buildClassificationList()
+
+  res.render("inventory/add-inventory", {
+    title: "Add New Inventory",
+    nav,
+    classificationList,
+    errors: null,
+  })
+}
+
+/* ***************************
+ *  Form Submission for classification
  *  W04
  * ************************** */
 invCont.addClassification = async function (req, res) {
@@ -89,6 +105,37 @@ invCont.addClassification = async function (req, res) {
       {
         title: "Add New Classification",
         nav,
+        errors: null,
+      }
+    )
+  }
+}
+
+/* ***************************
+ *  Form Submission for Inventory
+ *  W04
+ * ************************** */
+invCont.addInventory = async function (req, res) {
+  let nav = await utilities.getNav()
+
+  const {classification_id, inv_make, inv_model, inv_year, inv_description, 
+    inv_image, inv_thumbnail, inv_price, inv_miles, inv_color} = req.body
+  
+  const result = await invModel.addInventory(classification_id, inv_make, inv_model, inv_year, inv_description, 
+    inv_image, inv_thumbnail, inv_price, inv_miles, inv_color)
+
+  if (result) {
+    req.flash("notice", "Inventory was successfully added")
+    res.redirect("/inv")
+  } else {
+    const classificationList = await utilities.buildClassificationList(classification_id)
+    req.flash("notice", "Inventory was not added")
+    return res.status(501).render("inventory/add-inventory",
+      {
+        title: "Add New Inventory",
+        nav,
+        classificationList,
+        ...req.body,
         errors: null,
       }
     )

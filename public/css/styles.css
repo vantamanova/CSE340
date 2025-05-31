@@ -312,7 +312,10 @@ h1 {
 
 /*** ------------------------- Login/Registration Pages ------------------------- ***/
 .login-form,
-.registration-form {
+.registration-form,
+.managment-links,
+.classification-form,
+.inventory-form {
   background-color: white;
   padding: 1rem;
   border-radius: 12px;
@@ -326,7 +329,9 @@ h1 {
 }
 
 .login-form label,
-.registration-form label {
+.registration-form label,
+.classification-form label,
+.inventory-form label {
   color: #5a5a5a;
   font-size: 0.9rem;
   margin-bottom: 0.2rem;
@@ -335,7 +340,9 @@ h1 {
 }
 
 .login-form input,
-.registration-form input {
+.registration-form input,
+.classification-form input,
+.inventory-form input {
   padding: 0.75rem;
   font-size: 1rem;
   border: 1px solid rgb(211, 211, 211);
@@ -347,14 +354,18 @@ h1 {
 }
 
 .login-form input:focus,
-.registration-form input:focus {
+.registration-form input:focus,
+.classification-form input:focus,
+.inventory-form input:focus {
   border-color: #5a5a5a;
   background-color: white;
   outline: none;
 }
 
 .login-form button,
-.registration-form button {
+.registration-form button,
+.classification-form button,
+.inventory-form button {
   padding: 0.75rem;
   border: none;
   border-radius: 30px;
@@ -369,7 +380,9 @@ h1 {
 }
 
 .login-form button:hover,
-.registration-form button:hover {
+.registration-form button:hover,
+.classification-form button:hover,
+.inventory-form button:hover {
   background-color: #555555;
 }
 
@@ -423,6 +436,38 @@ input:required:valid {
   border-left: 3px solid rgb(24, 146, 89);
 }
 
+.managment-links p {
+  margin: 1rem 0;
+}
+
+.managment-links a {
+  font-weight: bold;
+  color: rgb(3, 73, 131);
+  text-decoration: underline;
+  font-size: 1rem;
+}
+
+.managment-links a:hover {
+  color: #274d75;
+}
+
+.classification-dropdown {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  background-color: white;
+  color: #333333;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  width: 100%;
+}
+
+.classification-dropdown:focus {
+  border-color: #5a5a5a;
+  background-color: white;
+  outline: none;
+}
 
 /*** ------------------------- Large Screen Styles ------------------------- ***/
 @media (min-width: 768px) {
