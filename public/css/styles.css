@@ -469,6 +469,11 @@ input:required:valid {
   outline: none;
 }
 
+#login-message {
+  margin-bottom: 0;
+}
+
+
 /*** ------------------------- Large Screen Styles ------------------------- ***/
 @media (min-width: 768px) {
 

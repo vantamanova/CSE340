@@ -17,6 +17,7 @@
 
                     <!-- Login Form -->
                     <form action="/account/login" method="post" class="login-form">
+                        <!-- All data will be sent through the account/login route-->
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="account_email" required
                             value="<%= locals.account_email %>">

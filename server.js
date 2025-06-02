@@ -17,6 +17,8 @@ const inventoryRoute = require("./routes/inventoryRoute")
 const utilities = require("./utilities/index")
 const accountRoute = require("./routes/accountRoute")
 const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser")
+
 
 /* ***********************
  * Middleware
@@ -42,6 +44,13 @@ app.use(function(req, res, next){
 // make the body-parser available to the application
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
+// Cookie-parser
+// Allows the cookie parser to be implemented throughout the project
+app.use(cookieParser())
+
+// Check Tolken
+app.use(utilities.checkJWTToken)
 
 /* ***********************
  * View Engine and Templates

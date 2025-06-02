@@ -23,8 +23,10 @@ router.post(
   "/login",
   loginValidate.loginRules(),
   loginValidate.checkLoginData,
-  (req, res) => {
-    res.status(200).send("login process")
-  }
+  utilities.handleErrors(accountController.accountLogin)
 )
+
+// Add the new default route for accounts to the accountRoute file
+router.get("/", utilities.handleErrors(accountController.buildAccountManagement))
+
 module.exports = router; // exports the router object for use elsewhere
