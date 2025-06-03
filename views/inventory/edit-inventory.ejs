@@ -16,7 +16,7 @@
                 <% } %>
 
                     <!-- New classification Form -->
-                    <form action="/inv/update" method="post" class="inventory-form">
+                    <form action="/inv/update" method="post" class="inventory-form" id="updateForm">
                         <label for="classificationList">Classification:</label>
                         <%- classificationList %>
                             <label for="inv_make">Make:</label>
@@ -33,11 +33,11 @@
                                 value="<%= locals.inv_description %>">
 
                             <label for="inv_image">Image:</label>
-                            <input type="text" id="inv_image" name="inv_image" required value="<%= locals.inv_image %>">
+                            <input type="text" id="inv_image" name="inv_image" required value="<%- locals.inv_image %>">
 
                             <label for="inv_thumbnail">Thumbnail:</label>
                             <input type="text" id="inv_thumbnail" name="inv_thumbnail" required
-                                value="<%= locals.inv_thumbnail %>">
+                                value="<%- locals.inv_thumbnail %>">
 
                             <label for="inv_price">Price:</label>
                             <input type="number" id="inv_price" name="inv_price" required
@@ -54,5 +54,9 @@
                                 <p>*All fields are required</p>
                             </div>
 
-                            <button type="submit">Update Vehicle</button>
+                            <button type="submit" disabled>Update Vehicle</button>
+
+                            <input type="hidden" name="inv_id" <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+                                <% } %>>
                     </form>
+                    <script src="../../js/inv-update.js"></script>

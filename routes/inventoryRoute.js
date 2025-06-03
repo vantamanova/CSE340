@@ -41,9 +41,19 @@ router.get("/getInventory/:classification_id", utilities.handleErrors(invControl
 // Modify
 router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventory))
 
-
 // Delete (group assignment)
 router.get("/delete/:inv_id", utilities.handleErrors(invController.deleteInventory))
     
+// Updates/Modify
+router.post("/update/",
+    invValidate.inventoryRules(),
+    invValidate.checkUpdateData,
+    utilities.handleErrors(invController.updateInventory))
+
+// Need to do something for delete/remove inventory as well
+router.post("/delete/",
+    invValidate.inventoryRules(),
+    invValidate.checkRemoveData,
+    utilities.handleErrors(invController.removeInventory))
 
 module.exports = router; // exports the router object for use elsewhere

@@ -133,4 +133,54 @@ validate.checkInventoryData = async (req, res, next) => {
   }
   next()
 }
+
+ /* ******************************
+ * Check data and return errors or continue to edit inventory view
+ * ***************************** */
+validate.checkUpdateData = async (req, res, next) => {
+  let errors = []
+  errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav()
+    const classificationList = await utilities.buildClassificationList(req.body.classification_id)
+    const inv_id = req.body.inv_id
+    const invName = `${req.body.inv_make} ${req.body.inv_model}`
+    
+    res.render("inventory/edit-inventory", {
+      errors,
+      title: "Edit " + invName,
+      nav,
+      classificationList,
+      ...req.body,
+      inv_id,
+    })
+    return
+  }
+  next()
+}
+
+ /* ******************************
+ * Check data and return errors or continue to delete inventory view
+ * ***************************** */
+validate.checkRemoveData = async (req, res, next) => {
+  let errors = []
+  errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav()
+    const classificationList = await utilities.buildClassificationList(req.body.classification_id)
+    const inv_id = req.body.inv_id
+    const invName = `${req.body.inv_make} ${req.body.inv_model}`
+    
+    res.render("inventory/delete-inventory", {
+      errors,
+      title: "Delete " + invName,
+      nav,
+      classificationList,
+      ...req.body,
+      inv_id,
+    })
+    return
+  }
+  next()
+}
 module.exports = validate
