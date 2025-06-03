@@ -37,4 +37,13 @@ router.post("/add-inventory",
 // W05
 router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
 
-    module.exports = router; // exports the router object for use elsewhere
+
+// Modify
+router.get("/edit/:inv_id", utilities.handleErrors(invController.editInventory))
+
+
+// Delete (group assignment)
+router.get("/delete/:inv_id", utilities.handleErrors(invController.deleteInventory))
+    
+
+module.exports = router; // exports the router object for use elsewhere

@@ -38,7 +38,7 @@ async function getDataByInvId(inv_id) {
       'SELECT * FROM public.inventory WHERE inv_id = $1',
       [inv_id]
     )
-    return data.rows
+    return data.rows[0]
   }  catch (error) {
     console.error("etDataByInvId error " + error)
   }

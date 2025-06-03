@@ -157,5 +157,65 @@ invCont.getInventoryJSON = async (req, res, next) => {
   }
 }
 
+/* ***************************
+ *  Build the "edit inventory" view
+ * ************************** */
+invCont.editInventory = async function (req, res,next) {
+  let inventory_id = parseInt(req.params.inv_id)
+  let nav = await utilities.getNav()
+  const invData = await invModel.getDataByInvId(inventory_id)
+  console.log("Errorrrrrrrrr", invData)
+  let classificationList = await utilities.buildClassificationList(invData.classification_id)
+
+  const invName = `${invData.inv_make} ${invData.inv_model}`
+
+  res.render("inventory/edit-inventory", {
+    title: "Edit " + invName,
+    nav,
+    classificationList: classificationList,
+    errors: null,
+    inv_id: invData.inv_id,
+    inv_make: invData.inv_make,
+    inv_model: invData.inv_model,
+    inv_year: invData.inv_year,
+    inv_description: invData.inv_description,
+    inv_image: invData.inv_image,
+    inv_thumbnail: invData.inv_thumbnail,
+    inv_price: invData.inv_price,
+    inv_miles: invData.inv_miles,
+    inv_color: invData.inv_color,
+    classification_id: invData.classification_id
+  })
+}
+
+
+/* ***************************
+ *  Build the "delete inventory" view
+ * ************************** */
+invCont.deleteInventory = async function (req, res,next) {
+  let inventory_id = parseInt(req.params.inv_id)
+  let nav = await utilities.getNav()
+  const invData = await invModel.getDataByInvId(inventory_id)
+  let classificationList = await utilities.buildClassificationList(invData.classification_id)
+
+  const invName = `${invData.inv_make} ${invData.inv_model}`
+  res.render("inventory/delete-inventory", {
+    title: "Delete " + invName,
+    nav,
+    classificationList: classificationList,
+    errors: null,
+    inv_id: invData.inv_id,
+    inv_make: invData.inv_make,
+    inv_model: invData.inv_model,
+    inv_year: invData.inv_year,
+    inv_description: invData.inv_description,
+    inv_image: invData.inv_image,
+    inv_thumbnail: invData.inv_thumbnail,
+    inv_price: invData.inv_price,
+    inv_miles: invData.inv_miles,
+    inv_color: invData.inv_color,
+    classification_id: invData.classification_id
+  })
+}
 
   module.exports = invCont
