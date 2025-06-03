@@ -461,6 +461,7 @@ input:required:valid {
   color: #333333;
   transition: border-color 0.3s ease, background-color 0.3s ease;
   width: 100%;
+  max-width: 700px;
 }
 
 .classification-dropdown:focus {
@@ -472,6 +473,44 @@ input:required:valid {
 #login-message {
   margin-bottom: 0;
 }
+
+#inventoryDisplay {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  margin-bottom: 0;
+  border-collapse: collapse;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  background-color: white;
+}
+
+#inventoryDisplay thead {
+  background-color: rgb(3, 73, 131);
+  color: white;
+}
+
+#inventoryDisplay th,
+#inventoryDisplay td {
+  padding: 12px 15px;
+  border: 1px solid rgb(211, 211, 211);
+  text-align: left;
+}
+
+#inventoryDisplay tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#inventoryDisplay a {
+  color: rgb(3, 73, 131);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+#inventoryDisplay a:hover {
+  color: #274d75;
+}
+
 
 
 /*** ------------------------- Large Screen Styles ------------------------- ***/

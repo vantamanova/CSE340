@@ -33,4 +33,8 @@ router.post("/add-inventory",
     invValidate.checkInventoryData, // server-side validation middleware 
     utilities.handleErrors(invController.addInventory)) // go to controller and go to function
 
+// Route works with the URL in the JavaScript file
+// W05
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON))
+
     module.exports = router; // exports the router object for use elsewhere
