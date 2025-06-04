@@ -52,8 +52,7 @@ router.post("/update/",
 
 // Need to do something for delete/remove inventory as well
 router.post("/delete/",
-    invValidate.inventoryRules(),
-    invValidate.checkRemoveData,
+    invValidate.checkRemoveData, // Do I need it?
     utilities.handleErrors(invController.removeInventory))
 
 module.exports = router; // exports the router object for use elsewhere
