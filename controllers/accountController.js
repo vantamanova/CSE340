@@ -121,10 +121,12 @@ async function accountLogin(req, res) {
 // Account Management View
 async function buildAccountManagement(req, res, next) {
   let nav = await utilities.getNav()
+  const accoundData = res.locals.accountData
   res.render("account/management", {
     title: "Account Management",
     nav,
-    errors: null
+    errors: null,
+    accoundData,
   })
 }
 
