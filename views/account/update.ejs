@@ -1,0 +1,53 @@
+<% if (title) { %>
+    <h1>
+        <%= title %>
+    </h1>
+    <% } else { res.redirect('/') } %>
+
+        <%- messages() %>
+            <% if (errors) { %>
+                <ul class="notice">
+                    <% errors.array().forEach(error=> { %>
+                        <li>
+                            <%= error.msg %>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } %>
+
+                    <!-- Account Update Form -->
+                    <form action="/account/update" method="post" class="accountUpdate-form">
+                        <label for="first_name">First name:</label>
+                        <input type="text" id="first_name" name="account_firstname" required
+                            value="<%= accountData.account_firstname %>">
+
+                        <label for="last_name">Last name:</label>
+                        <input type="text" id="last_name" name="account_lastname" required
+                            value="<%= accountData.account_lastname %>">
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="account_email" required
+                            value="<%= accountData.account_email %>">
+
+                        <button type="submit">Update Information</button>
+
+                        <input type="hidden" name="account_id" value="<%= accountData.account_id %>">
+
+                    </form>
+
+                    <!-- Change Password Form -->
+                    <form action="/account/update-password" method="post" class="passwordUpdate-form">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="account_password" required
+                            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+                        <div id="passwordRequirements">
+                            <p>*the password is at least 12 characters and has at least 1 uppercase
+                                character, 1 number
+                                and 1 special character.</p>
+                        </div>
+
+                        <button type="submit">Update Password</button>
+
+                        <input type="hidden" name="account_id" value="<%= accountData.account_id %>">
+
+                    </form>

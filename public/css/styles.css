@@ -315,7 +315,9 @@ h1 {
 .registration-form,
 .managment-links,
 .classification-form,
-.inventory-form {
+.inventory-form,
+.passwordUpdate-form,
+.accountUpdate-form {
   background-color: white;
   padding: 1rem;
   border-radius: 12px;
@@ -331,7 +333,9 @@ h1 {
 .login-form label,
 .registration-form label,
 .classification-form label,
-.inventory-form label {
+.inventory-form label,
+.passwordUpdate-form label,
+.accountUpdate-form label {
   color: #5a5a5a;
   font-size: 0.9rem;
   margin-bottom: 0.2rem;
@@ -342,7 +346,9 @@ h1 {
 .login-form input,
 .registration-form input,
 .classification-form input,
-.inventory-form input {
+.inventory-form input,
+.passwordUpdate-form input,
+.accountUpdate-form input {
   padding: 0.75rem;
   font-size: 1rem;
   border: 1px solid rgb(211, 211, 211);
@@ -356,7 +362,9 @@ h1 {
 .login-form input:focus,
 .registration-form input:focus,
 .classification-form input:focus,
-.inventory-form input:focus {
+.inventory-form input:focus,
+.passwordUpdate-form input:focus,
+.accountUpdate-form input:focus {
   border-color: #5a5a5a;
   background-color: white;
   outline: none;
@@ -365,7 +373,9 @@ h1 {
 .login-form button,
 .registration-form button,
 .classification-form button,
-.inventory-form button {
+.inventory-form button,
+.passwordUpdate-form button,
+.accountUpdate-form button {
   padding: 0.75rem;
   border: none;
   border-radius: 30px;
@@ -382,7 +392,9 @@ h1 {
 .login-form button:hover,
 .registration-form button:hover,
 .classification-form button:hover,
-.inventory-form button:hover {
+.inventory-form button:hover,
+.passwordUpdate-form button:hover,
+.accountUpdate-form button:hover {
   background-color: #555555;
 }
 
@@ -417,7 +429,7 @@ h1 {
 }
 
 ul.notice {
-  border: 1px solid rgb(211, 211, 211);
+
   list-style-type: none;
   padding-left: 0;
   color: red;
@@ -509,6 +521,43 @@ input:required:valid {
 
 #inventoryDisplay a:hover {
   color: #274d75;
+}
+
+/* ------------------ Account Management Area ------------------ */
+.account-management {
+  margin: 2rem auto 0 auto;
+  padding: 2rem;
+  max-width: 600px;
+  background-color: white;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.account-management h2 {
+  font-size: 1.8rem;
+  color: rgb(3, 73, 131);
+  margin-bottom: 1rem;
+}
+
+.account-management h3 {
+  font-size: 1.3rem;
+  color: #555555;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.account-management a {
+  display: inline-block;
+  margin: 0.5rem 0;
+  text-decoration: underline;
+  color: rgb(3, 73, 131);
+  font-weight: 600;
+}
+
+.account-management a:hover {
+  color: #274d75;
+  text-decoration: none;
 }
 
 

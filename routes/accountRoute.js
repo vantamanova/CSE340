@@ -27,6 +27,25 @@ router.post(
 )
 
 // Add the new default route for accounts to the accountRoute file
-router.get("/", utilities.checkLogin, utilities.handleErrors(accountController.buildAccountManagement))
+router.get("/",
+  utilities.checkLogin,
+  utilities.handleErrors(accountController.buildAccountManagement))
+
+// delivery of the account update view
+router.get("/update/:account_id",
+  utilities.checkLogin,
+  utilities.handleErrors(accountController.buildUpdateAccount))
+
+// process the update of the account information
+router.post("/update",
+  utilities.checkLogin,
+  regValidate.checkRegData,
+  utilities.handleErrors(accountController.accountUpdate))
+
+// process password update request
+router.post("/update-password",
+  utilities.checkLogin,
+  regValidate.checkRegData,
+  utilities.handleErrors(accountController.passwordUpdate))
 
 module.exports = router; // exports the router object for use elsewhere

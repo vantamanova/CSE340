@@ -130,5 +130,89 @@ async function buildAccountManagement(req, res, next) {
   })
 }
 
+// Deliver the account update view
+async function buildUpdateAccount(req, res) {
+  let nav = await utilities.getNav()
+  const accoundData = res.locals.accountData
+  res.render("account/update", {
+    title: "Account Update",
+    nav,
+    errors: null,
+    accoundData,
+  })
+}
 
-module.exports = { buildLogin, buildRegisteration, registerAccount, accountLogin, buildAccountManagement }
+// "Account update" process
+async function accountUpdate(req, res) {
+  let nav = await utilities.getNav()
+  const { account_firstname, account_lastname, account_email, account_id } = req.body
+  let accountData = await accountModel.getAccountById(account_id)
+  
+  try {
+    const updateResult = await accountModel.updateAccount(
+      account_firstname, account_lastname, account_email, account_id
+    )
+
+    if (updateResult) {
+      req.flash("notice", "Account information updated successfully.")
+      accountData = await accountModel.getAccountById(account_id)
+
+      const accessToken = jwt.sign(accountData, process.env.ACCESS_TOKEN_SECRET, { expiresIn: 3600 * 1000 })
+      res.cookie("jwt", accessToken, { httpOnly: true, maxAge: 3600 * 1000 })
+
+      return res.redirect("/account")
+    }
+    else {
+      req.flash("notice", "Update failed.")
+      res.status(400).render("account/update", {
+        title: "Update Account",
+        nav,
+        errors: null,
+        accountData,
+      })
+    }
+  } catch (error) {
+    throw new Error('Update Failed')
+  }
+}
+
+// "Password update" process
+async function passwordUpdate(req, res) {
+  let nav = await utilities.getNav()
+  const { account_password, account_id } = req.body
+  let accountData = await accountModel.getAccountById(account_id)
+  
+  try {
+    const hashedPassword = await bcrypt.hashSync(account_password, 10)
+
+    const updateResult = await accountModel.updatePassword(
+      hashedPassword, account_id
+    )
+
+    if (updateResult) {
+      req.flash("notice", "Password updated successfully.")
+      accountData = await accountModel.getAccountById(account_id)
+
+      const accessToken = jwt.sign(accountData, process.env.ACCESS_TOKEN_SECRET, { expiresIn: 3600 * 1000 })
+      res.cookie("jwt", accessToken, { httpOnly: true, maxAge: 3600 * 1000 })
+
+      return res.redirect("/account")
+    }
+    else {
+      req.flash("notice", "Update failed.")
+      res.status(400).render("account/update", {
+        title: "Update Account",
+        nav,
+        errors: null,
+        accountData,
+      })
+    }
+  } catch (error) {
+    throw new Error('Update Failed')
+  }
+}
+
+
+module.exports = { buildLogin, buildRegisteration, registerAccount,
+  accountLogin, buildAccountManagement, buildUpdateAccount, accountUpdate,
+  passwordUpdate }
