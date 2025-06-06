@@ -212,7 +212,14 @@ async function passwordUpdate(req, res) {
   }
 }
 
+// Logout
+function accountLogout (req, res) {
+ res.clearCookie("jwt", { httpOnly: true, secure: true })
+ req.flash("notice", "You have been logged out")
+ return res.redirect("/")
+}
+
 
 module.exports = { buildLogin, buildRegisteration, registerAccount,
   accountLogin, buildAccountManagement, buildUpdateAccount, accountUpdate,
-  passwordUpdate }
+  passwordUpdate, accountLogout }

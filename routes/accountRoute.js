@@ -48,4 +48,10 @@ router.post("/update-password",
   regValidate.checkRegData,
   utilities.handleErrors(accountController.passwordUpdate))
 
+
+// process logout request
+router.get("/logout",
+  accountController.accountLogout 
+)
+
 module.exports = router; // exports the router object for use elsewhere
