@@ -315,7 +315,8 @@ h1 {
 .classification-form,
 .inventory-form,
 .passwordUpdate-form,
-.accountUpdate-form {
+.accountUpdate-form,
+.message-form {
   background-color: white;
   padding: 1rem;
   border-radius: 12px;
@@ -333,7 +334,8 @@ h1 {
 .classification-form label,
 .inventory-form label,
 .passwordUpdate-form label,
-.accountUpdate-form label {
+.accountUpdate-form label,
+.message-form label {
   color: #5a5a5a;
   font-size: 0.9rem;
   margin-bottom: 0.2rem;
@@ -346,7 +348,8 @@ h1 {
 .classification-form input,
 .inventory-form input,
 .passwordUpdate-form input,
-.accountUpdate-form input {
+.accountUpdate-form input,
+.message-form input {
   padding: 0.75rem;
   font-size: 1rem;
   border: 1px solid rgb(211, 211, 211);
@@ -362,7 +365,8 @@ h1 {
 .classification-form input:focus,
 .inventory-form input:focus,
 .passwordUpdate-form input:focus,
-.accountUpdate-form input:focus {
+.accountUpdate-form input:focus,
+.message-form input:focus {
   border-color: #5a5a5a;
   background-color: white;
   outline: none;
@@ -373,7 +377,8 @@ h1 {
 .classification-form button,
 .inventory-form button,
 .passwordUpdate-form button,
-.accountUpdate-form button {
+.accountUpdate-form button,
+.message-form button {
   padding: 0.75rem;
   border: none;
   border-radius: 30px;
@@ -392,7 +397,8 @@ h1 {
 .classification-form button:hover,
 .inventory-form button:hover,
 .passwordUpdate-form button:hover,
-.accountUpdate-form button:hover {
+.accountUpdate-form button:hover,
+.message-form button:hover {
   background-color: #555555;
 }
 
