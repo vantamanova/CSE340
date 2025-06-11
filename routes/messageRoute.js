@@ -36,6 +36,10 @@ router.post("/archive",
     utilities.handleErrors(messageController.archiveMessage)
 )
 
+// Move to Inbox
+router.post("/unarchive", 
+    utilities.handleErrors(messageController.moveMessageToInbox)
+)
 // Build Archive View
 router.get("/archive", 
     utilities.handleErrors(messageController.buildArchiveMessage)

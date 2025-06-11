@@ -36,16 +36,24 @@
                     <!-- Message Area -->
                     <div class="message-actions">
                     </div>
-                    <form action="/message/archive" method="post">
-                        <input type="hidden" name="message_id" value="<%= message.message_id %>">
-                        <button type="submit">Archive</button>
-                    </form>
+                    <% if (!message.message_archived) { %>
+                        <form action="/message/archive" method="post">
+                            <input type="hidden" name="message_id" value="<%= message.message_id %>">
+                            <button type="submit">Archive</button>
+                        </form>
+                        <% } else { %>
+                            <form action="/message/unarchive" method="post">
+                                <input type="hidden" name="message_id" value="<%= message.message_id %>">
+                                <button type="submit">Move to Inbox</button>
+                            </form>
+                            <% } %>
 
-                    <!-- Message Area -->
-                    <form action="/message/delete" method="post" onsubmit="return confirm('Delete this message?')">
-                        <input type="hidden" name="message_id" value="<%= message.message_id %>">
-                        <button type="submit">Delete</button>
-                    </form>
-                    </div>
+                                <!-- Message Area -->
+                                <form action="/message/delete" method="post"
+                                    onsubmit="return confirm('Delete this message?')">
+                                    <input type="hidden" name="message_id" value="<%= message.message_id %>">
+                                    <button type="submit">Delete</button>
+                                </form>
+                                </div>
 
-                    <noscript>JavaScript must be enabled to use this page.</noscript>
+                                <noscript>JavaScript must be enabled to use this page.</noscript>

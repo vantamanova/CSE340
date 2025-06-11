@@ -101,6 +101,17 @@ messageCont.archiveMessage = async function (req, res) {
 }
 
 /* ***************************
+ *  Move to Inbox Message
+ * ************************** */
+messageCont.moveMessageToInbox = async function (req, res) {
+  const message_id = parseInt(req.body.message_id)
+  await messageModel.moveMessageToInbox(message_id)
+
+  req.flash("notice", "Message moved to inbox")
+  res.redirect("/message")
+}
+
+/* ***************************
  *  Build Archive view
  * ************************** */
 messageCont.buildArchiveMessage = async function (req, res, next) {

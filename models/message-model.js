@@ -97,7 +97,7 @@ async function deleteMessage (message_id) {
 }
 
 /* ***************************
- *  Archive Message as Read
+ *  Archive Message
  * ************************** */
 async function archiveMessage (message_id) {
   try {
@@ -110,6 +110,23 @@ async function archiveMessage (message_id) {
     return data.rowCount
   }  catch (error) {
     console.error("archiveMessage error " + error)
+  }
+}
+
+/* ***************************
+*  Archive Message
+* ************************** */
+async function moveMessageToInbox (message_id) {
+  try {
+    const data = await pool.query(
+      `UPDATE public.message
+      SET message_archived  = false
+      WHERE message_id = $1`,
+      [message_id]
+    )
+    return data.rowCount
+  }  catch (error) {
+    console.error("moveMessageToInbox error " + error)
   }
 }
 
@@ -135,4 +152,4 @@ async function getArchiveMessages(account_id) {
 
 module.exports = { getAccountList, insertMessage, getInboxMessages, 
     getMessageById, markMessageAsRead, archiveMessage, deleteMessage,
-    getArchiveMessages }
+    getArchiveMessages, moveMessageToInbox }
