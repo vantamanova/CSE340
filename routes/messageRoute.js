@@ -21,6 +21,26 @@ router.post("/send",
     utilities.handleErrors(messageController.sendMessage)
 )
 
+// Build Message View
+router.get("/view/:id",
+    utilities.handleErrors(messageController.viewMessage)
+)
+
+// Delete Message
+router.post("/delete", 
+    utilities.handleErrors(messageController.deleteMessage)
+)
+
+// Archive Message
+router.post("/archive", 
+    utilities.handleErrors(messageController.archiveMessage)
+)
+
+// Build Archive View
+router.get("/archive", 
+    utilities.handleErrors(messageController.buildArchiveMessage)
+)
+
 
 
 module.exports = router 

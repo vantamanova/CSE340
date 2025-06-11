@@ -9,11 +9,13 @@ const messageCont = {}
  * ************************** */
 messageCont.buildInbox = async function (req, res, next) {
   let nav = await utilities.getNav()
+  const account_id = res.locals.accountData.account_id
+  const messagesList = await messageModel.getInboxMessages(account_id)
 
   res.render("message/inbox", {
     title: "Inbox",
     nav,
-    messagesList: [],
+    messagesList,
     errors: null
   })
 }
@@ -51,4 +53,68 @@ messageCont.sendMessage = async function (req, res) {
     return res.redirect("/message/new")
   }
     }
+
+/* ***************************
+ *  Build View Message
+ * ************************** */
+messageCont.viewMessage = async function (req, res) {
+  let message_id = parseInt(req.params.id)
+  let nav = await utilities.getNav()
+  const message = await messageModel.getMessageById(message_id)
+  console.log("Viewing message:", message)
+
+  // Shold I check if the message is for this account?
+
+  if (message) {
+    res.render("message/view-message", {
+    title: "View Message",
+    nav,
+    errors: null,
+    message,
+    })
+  } else {
+    req.flash("notice", "Message not found")
+    res.redirect("/message")
+  }
+}
+
+/* ***************************
+ *  Delete Message
+ * ************************** */
+messageCont.deleteMessage = async function (req, res) {
+  const message_id = req.body.message_id
+  await messageModel.deleteMessage(message_id)
+
+  req.flash("notice", "Message deleted")
+  res.redirect("/message")
+}
+
+/* ***************************
+ *  Archive Message
+ * ************************** */
+messageCont.archiveMessage = async function (req, res) {
+  const message_id = parseInt(req.body.message_id)
+  await messageModel.archiveMessage(message_id)
+
+  req.flash("notice", "Message archived")
+  res.redirect("/message")
+}
+
+/* ***************************
+ *  Build Archive view
+ * ************************** */
+messageCont.buildArchiveMessage = async function (req, res, next) {
+  let nav = await utilities.getNav()
+  const account_id = res.locals.accountData.account_id
+  const messagesList = await messageModel.getArchiveMessages(account_id)
+
+  res.render("message/archive", {
+    title: "Archived Messages",
+    nav,
+    messagesList,
+    errors: null,
+  })
+}
+
+
 module.exports = messageCont

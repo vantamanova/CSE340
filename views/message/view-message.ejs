@@ -1,0 +1,51 @@
+<% if (title) { %>
+    <h1>
+        <%= title %>
+    </h1>
+    <% } else { res.redirect('/') } %>
+
+        <%- messages() %>
+            <% if (errors) { %>
+                <ul class="notice">
+                    <% errors.array().forEach(error=> { %>
+                        <li>
+                            <%= error.msg %>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } %>
+
+
+                    <!-- Message Area -->
+                    <p><strong>From:</strong>
+                        <%= message.account_firstname %>
+                            <%= message.account_lastname %>
+                    </p>
+                    <p><strong>Sent:</strong>
+                        <%= new Date(message.message_created).toLocaleString() %>
+                    </p>
+                    <p><strong>Subject:</strong>
+                        <%= message.message_subject %>
+                    </p>
+                    <p><strong>Message:</strong></p>
+                    <p>
+                        <%= message.message_body %>
+                    </p>
+
+
+                    <!-- Message Area -->
+                    <div class="message-actions">
+                    </div>
+                    <form action="/message/archive" method="post">
+                        <input type="hidden" name="message_id" value="<%= message.message_id %>">
+                        <button type="submit">Archive</button>
+                    </form>
+
+                    <!-- Message Area -->
+                    <form action="/message/delete" method="post" onsubmit="return confirm('Delete this message?')">
+                        <input type="hidden" name="message_id" value="<%= message.message_id %>">
+                        <button type="submit">Delete</button>
+                    </form>
+                    </div>
+
+                    <noscript>JavaScript must be enabled to use this page.</noscript>
