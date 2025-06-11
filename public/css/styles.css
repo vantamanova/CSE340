@@ -514,7 +514,7 @@ input:required:valid {
 }
 
 #inventoryDisplay tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: white;
 }
 
 #inventoryDisplay a {
@@ -563,6 +563,90 @@ input:required:valid {
   color: #274d75;
   text-decoration: none;
 }
+
+
+/* ------------------ Inbox Area (final project) ------------------ */
+.message-table {
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  border-collapse: collapse;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  background-color: white;
+}
+
+.message-table th,
+.message-table td {
+  padding: 12px 15px;
+  border: 1px solid rgb(211, 211, 211);
+  text-align: left;
+}
+
+.message-table thead {
+  background-color: rgb(3, 73, 131);
+  color: white;
+}
+
+.message-table tr:nth-child(even) {
+  background-color: white;
+}
+
+.message-table a {
+  color: rgb(3, 73, 131);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.message-table a:hover {
+  color: #274d75;
+}
+
+/* -------------- message view -------------- */
+.view-message {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.view-message p {
+  margin: 0.8rem 0;
+  font-size: 1rem;
+  color: #333333;
+}
+
+.view-message strong {
+  color: rgb(3, 73, 131);
+}
+
+.message-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+/* -------------- archive link -------------- */
+.message-nav {
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.message-nav a {
+  font-weight: bold;
+  color: rgb(3, 73, 131);
+  text-decoration: underline;
+}
+
+.message-nav a:hover {
+  color: #274d75;
+}
+
 
 
 
