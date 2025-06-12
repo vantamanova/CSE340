@@ -257,3 +257,29 @@ WHERE classification_name = 'Sport';
 UPDATE inventory
 SET inv_image = REPLACE(inv_image, '/images', '/images/vehicles/'),
     inv_thumbnail = REPLACE(inv_thumbnail, '/images', '/images/vehicles/');
+--
+--
+-- Create 3 main user accounts (need to do it manualy)
+-- Set the account_type to 'Employee' for the Happy Employee
+UPDATE account
+SET account_type = 'Employee'
+WHERE account_email = 'happy@340.edu';
+-- Set the account_type to 'Admin' for the Manager User
+UPDATE account
+SET account_type = 'Admin'
+WHERE account_email = 'manager@340.edu';
+--
+--
+-- Create Message Table 
+CREATE TABLE message (
+    message_id SERIAL PRIMARY KEY,
+    message_subject VARCHAR(255) NOT NULL,
+    message_body TEXT NOT NULL,
+    message_created TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    message_to INTEGER NOT NULL,
+    message_from INTEGER NOT NULL,
+    message_read BOOLEAN NOT NULL DEFAULT FALSE,
+    message_archived BOOLEAN NOT NULL DEFAULT FALSE,
+    CONSTRAINT fk_sender FOREIGN KEY (message_from) REFERENCES account(account_id),
+    CONSTRAINT fk_recipient FOREIGN KEY (message_to) REFERENCES account(account_id)
+);

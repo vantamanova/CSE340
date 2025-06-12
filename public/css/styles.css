@@ -569,7 +569,7 @@ input:required:valid {
 .message-table {
   width: 100%;
   max-width: 900px;
-  margin: 2rem auto;
+  margin: 2rem auto 0 auto;
   border-collapse: collapse;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   font-size: 1rem;
@@ -601,6 +601,32 @@ input:required:valid {
 .message-table a:hover {
   color: #274d75;
 }
+
+.message-form textarea,
+.message-form select {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  background-color: white;
+  color: #333333;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  width: 100%;
+}
+
+.message-form textarea:focus,
+.message-form select:focus {
+  border-color: #5a5a5a;
+  background-color: white;
+  outline: none;
+}
+
+.message-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
 
 /* -------------- message view -------------- */
 .view-message {
@@ -635,17 +661,51 @@ input:required:valid {
 .message-nav {
   margin: 1rem auto;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .message-nav a {
   font-weight: bold;
   color: rgb(3, 73, 131);
-  text-decoration: underline;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgb(211, 211, 211);
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .message-nav a:hover {
-  color: #274d75;
+  background-color: rgb(3, 73, 131);
+  color: white;
+  text-decoration: none;
 }
+
+/* -------------- message view page -------------- */
+.message-view {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgb(211, 211, 211);
+  text-align: left;
+}
+
+.message-view p {
+  margin: 0.5rem 0;
+}
+
+.message-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
 
 
 
