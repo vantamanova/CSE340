@@ -81,6 +81,23 @@ async function markMessageAsRead(message_id) {
 }
 
 /* ***************************
+ *  Mark Message as Unread
+ * ************************** */
+async function markMessageAsUnread(message_id) {
+  try {
+    const data = await pool.query(
+      `UPDATE public.message
+      SET message_read = false
+      WHERE message_id = $1`,
+      [message_id]
+    )
+    return data.rowCount
+  }  catch (error) {
+    console.error("markMessageAsUnread error " + error)
+  }
+}
+
+/* ***************************
  *  Delete Message
  * ************************** */
 async function deleteMessage (message_id) {
@@ -152,4 +169,4 @@ async function getArchiveMessages(account_id) {
 
 module.exports = { getAccountList, insertMessage, getInboxMessages, 
     getMessageById, markMessageAsRead, archiveMessage, deleteMessage,
-    getArchiveMessages, moveMessageToInbox }
+    getArchiveMessages, moveMessageToInbox, markMessageAsUnread }

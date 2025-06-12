@@ -129,5 +129,12 @@ messageCont.buildArchiveMessage = async function (req, res, next) {
   })
 }
 
+messageCont.markMessageAsUnread = async function (req, res) {
+  const message_id = parseInt(req.body.message_id)
+  await messageModel.markMessageAsUnread(message_id)
+  req.flash("notice", "Message marked as unread")
+  res.redirect("/message")
+}
+
 
 module.exports = messageCont

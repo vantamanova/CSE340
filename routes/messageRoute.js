@@ -45,6 +45,10 @@ router.get("/archive",
     utilities.handleErrors(messageController.buildArchiveMessage)
 )
 
+// Mark us unread
+router.post("/unread", 
+    utilities.handleErrors(messageController.markMessageAsUnread)
+)
 
 
 module.exports = router 

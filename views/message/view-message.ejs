@@ -54,6 +54,14 @@
                                             <input type="hidden" name="message_id" value="<%= message.message_id %>">
                                             <button type="submit">Delete</button>
                                         </form>
+
+                                        <form action="/message/unread" method="post">
+                                            <input type="hidden" name="message_id" value="<%= message.message_id %>">
+                                            <button type="submit">Unread</button>
+                                        </form>
+
+                                        <a href="/message" class="return-link">Inbox</a>
+
                         </div>
                     </div>
 

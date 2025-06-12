@@ -706,7 +706,25 @@ input:required:valid {
   margin-top: 1.5rem;
 }
 
+.return-link {
+  display: inline-block;
+  padding: 10px 25px;
+  border: none;
+  background-color: rgb(3, 73, 131);
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-top: 5px;
+}
 
+
+.return-link:hover,
+button:hover {
+  background-color: #555555;
+}
 
 
 
