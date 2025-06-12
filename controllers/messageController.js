@@ -60,6 +60,8 @@ messageCont.sendMessage = async function (req, res) {
 messageCont.viewMessage = async function (req, res) {
   let message_id = parseInt(req.params.id)
   let nav = await utilities.getNav()
+
+  await messageModel.markMessageAsRead(message_id)
   const message = await messageModel.getMessageById(message_id)
   console.log("Viewing message:", message)
 
