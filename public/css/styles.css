@@ -436,7 +436,7 @@ ul.notice {
 
   list-style-type: none;
   padding-left: 0;
-  color: red;
+  color: rgb(155, 0, 0);
 }
 
 #passwordRequirements p {
