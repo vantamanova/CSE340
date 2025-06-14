@@ -54,6 +54,23 @@
                                     <% }) %>
                             </tbody>
                         </table>
+
+                        <div class="message-cards">
+                            <% messagesList.forEach(message=> { %>
+                                <div class="message-card">
+                                    <p><strong>From:</strong>
+                                        <%= message.account_firstname %>
+                                            <%= message.account_lastname %>
+                                    </p>
+                                    <p><strong>Subject:</strong> <a href="/message/view/<%= message.message_id %>">
+                                            <%= message.message_subject %>
+                                        </a></p>
+                                    <p><strong>Received:</strong>
+                                        <%= new Date(message.message_created).toLocaleString() %>
+                                    </p>
+                                </div>
+                                <% }) %>
+                        </div>
                         <% } else { %>
                             <p>You don't have any messages yet.</p>
                             <% } %>

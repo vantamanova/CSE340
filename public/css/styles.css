@@ -566,67 +566,39 @@ input:required:valid {
 
 
 /* ------------------ Inbox Area (final project) ------------------ */
+
 .message-table {
-  width: 100%;
-  max-width: 900px;
-  margin: 2rem auto 0 auto;
-  border-collapse: collapse;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  font-size: 1rem;
-  background-color: white;
+  display: none;
 }
 
-.message-table th,
-.message-table td {
-  padding: 12px 15px;
+.message-cards {
+  display: block;
+  padding: 1rem;
+}
+
+.message-card {
   border: 1px solid rgb(211, 211, 211);
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  padding: 1rem;
   text-align: left;
 }
 
-.message-table thead {
-  background-color: rgb(3, 73, 131);
-  color: white;
+.message-card p {
+  margin: 0.5rem 0;
 }
 
-.message-table tr:nth-child(even) {
-  background-color: white;
-}
-
-.message-table a {
+.message-card a {
   color: rgb(3, 73, 131);
-  font-weight: bold;
   text-decoration: underline;
+  font-weight: bold;
 }
 
-.message-table a:hover {
+.message-card a:hover {
   color: #274d75;
 }
-
-.message-form textarea,
-.message-form select {
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: 1px solid rgb(211, 211, 211);
-  border-radius: 6px;
-  margin-bottom: 1rem;
-  background-color: white;
-  color: #333333;
-  transition: border-color 0.3s ease, background-color 0.3s ease;
-  width: 100%;
-}
-
-.message-form textarea:focus,
-.message-form select:focus {
-  border-color: #5a5a5a;
-  background-color: white;
-  outline: none;
-}
-
-.message-form textarea {
-  resize: vertical;
-  min-height: 150px;
-}
-
 
 /* -------------- message view -------------- */
 .view-message {
@@ -651,10 +623,11 @@ input:required:valid {
 }
 
 .message-actions {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
   gap: 1rem;
+  margin-top: 1.5rem;
 }
 
 /* -------------- archive link -------------- */
@@ -697,13 +670,6 @@ input:required:valid {
 
 .message-view p {
   margin: 0.5rem 0;
-}
-
-.message-actions {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
 }
 
 .return-link {
@@ -865,5 +831,78 @@ button:hover {
   footer {
     max-width: 1300px;
     margin: auto;
+  }
+
+
+  .message-cards {
+    display: none;
+  }
+
+  .message-table {
+    display: block;
+    width: 100%;
+    margin: auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    background-color: white;
+  }
+
+  .message-table th,
+  .message-table td {
+    padding: 12px 15px;
+    border: 1px solid rgb(211, 211, 211);
+    text-align: left;
+  }
+
+  .message-table thead {
+    background-color: rgb(3, 73, 131);
+    color: white;
+  }
+
+  .message-table tr:nth-child(even) {
+    background-color: white;
+  }
+
+  .message-table a {
+    color: rgb(3, 73, 131);
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .message-table a:hover {
+    color: #274d75;
+  }
+
+  .message-form textarea,
+  .message-form select {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    background-color: white;
+    color: #333333;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    width: 100%;
+  }
+
+  .message-form textarea:focus,
+  .message-form select:focus {
+    border-color: #5a5a5a;
+    background-color: white;
+    outline: none;
+  }
+
+  .message-form textarea {
+    resize: vertical;
+    min-height: 150px;
+  }
+
+  .message-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
   }
 }
